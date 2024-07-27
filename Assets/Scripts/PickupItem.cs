@@ -12,7 +12,7 @@ public class PickupItem : MonoBehaviour
     [SerializeField] private FinishSpaceship spaceship;
 
     public GameObject currentItem;
-
+    public SpriteChangerInventory spriteChanger;
 
     void Update()
     {
@@ -23,9 +23,11 @@ public class PickupItem : MonoBehaviour
             if (raycastHit.transform.CompareTag("Item")) {
                 message.SetText("Press `E` to pick up item.");
                 message.gameObject.SetActive(true);
+                
 
                 if (Input.GetKeyDown(KeyCode.E)) {
                     currentItem = raycastHit.transform.gameObject;
+                    spriteChanger.ChangeSprite(currentItem);
                 }
             
             // Pointing towards a multimeter
