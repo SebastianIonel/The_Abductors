@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Item
   - Multimeter
+  - Spaceship
   layers:
   - Default
   - TransparentFX

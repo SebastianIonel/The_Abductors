@@ -10,8 +10,7 @@ public class Multimeter : MonoBehaviour
     public void MeasureResistance(GameObject resistanceObject)
     {
         Resistance resistance = resistanceObject.GetComponent<Resistance>();
-        if (resistance != null)
-        {
+        if (resistance != null) {
             measuredResistance = resistance.resistanceValue;
             UpdateDisplay();
         }
