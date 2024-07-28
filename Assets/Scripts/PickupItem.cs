@@ -48,7 +48,6 @@ public class PickupItem : MonoBehaviour
                     {
                         // add changer ship
                         spriteChangerShip.DisplayPuzzle();
-                        //Debug.Log("TEST");
                     }
                 } else {
                     message.SetText("Press `E` to repair the Spaceship.");
@@ -58,6 +57,7 @@ public class PickupItem : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E)) {
                     spaceship.Repair(currentItem);
                     spriteChanger.Reset();
+                    currentItem = null;
                 }
             } else {
                 message.gameObject.SetActive(false);
