@@ -13,6 +13,7 @@ public class PickupItem : MonoBehaviour
 
     public GameObject currentItem;
     public SpriteChangerInventory spriteChanger;
+    public SpriteChangerShip spriteChangerShip;
 
     void Update()
     {
@@ -43,6 +44,12 @@ public class PickupItem : MonoBehaviour
             } else if (raycastHit.transform.CompareTag("Spaceship")) {
                 if (currentItem == null) {
                     message.SetText("Something is missing.");
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        // add changer ship
+                        spriteChangerShip.DisplayPuzzle();
+                        //Debug.Log("TEST");
+                    }
                 } else {
                     message.SetText("Press `E` to repair the Spaceship.");
                 }
@@ -50,6 +57,7 @@ public class PickupItem : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E)) {
                     spaceship.Repair(currentItem);
+                    spriteChanger.Reset();
                 }
             } else {
                 message.gameObject.SetActive(false);
@@ -57,5 +65,11 @@ public class PickupItem : MonoBehaviour
         } else {
             message.gameObject.SetActive(false);
         }
+        // close puzzle
+        if (Input.GetKeyDown(KeyCode.Escape) && spriteChangerShip.IsPuzzleActive())
+        {
+            spriteChangerShip.HidePuzzle();
+        }
     }
+   
 }
