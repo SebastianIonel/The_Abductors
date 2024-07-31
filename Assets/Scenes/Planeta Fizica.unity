@@ -1101,7 +1101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.13599145, b: 0.13599145, a: 1}
+  m_Color: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1411,7 +1411,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circuit: {fileID: 347374058}
-  waitManager: {fileID: 347374060}
 --- !u!114 &347374058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1432,7 +1431,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 161583d9eb3c52f449453c3dda357f72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe47d025ac1b0ea498f192da2cfe28ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5165,7 +5164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resistanceValue: 220
-  sprite: {fileID: 21300000, guid: deda6be6c25d30d40a867319c0fed939, type: 3}
+  sprite: {fileID: 21300000, guid: b5231245e8697ba4cbbf96b58688dfb8, type: 3}
 --- !u!65 &933686682
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7096,7 +7095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resistanceValue: 330
-  sprite: {fileID: 21300000, guid: d4cdcf750afed6f47b402477e3344ca3, type: 3}
+  sprite: {fileID: 21300000, guid: 026040d1f9da5b342944febd6059e005, type: 3}
 --- !u!65 &1284620875
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11103,7 +11102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resistanceValue: 100
-  sprite: {fileID: 21300000, guid: 02a59e86eee538049aeba76b4447ac3f, type: 3}
+  sprite: {fileID: 21300000, guid: eb8040754bfd83846b4529238bfceb24, type: 3}
 --- !u!1001 &2017268738
 PrefabInstance:
   m_ObjectHideFlags: 0
