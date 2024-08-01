@@ -12,7 +12,8 @@ public class PickupItem : MonoBehaviour
     [SerializeField] private FinishCircuit circuit;
 
     public GameObject currentItem;
-
+    public SpriteChangerInventory spriteChanger;
+    public SpriteChangerShip spriteChangerShip;
 
     void Update()
     {
@@ -23,9 +24,11 @@ public class PickupItem : MonoBehaviour
             if (raycastHit.transform.CompareTag("Item")) {
                 message.SetText("Press `E` to pick up item.");
                 message.gameObject.SetActive(true);
+                
 
                 if (Input.GetKeyDown(KeyCode.E)) {
                     currentItem = raycastHit.transform.gameObject;
+                    spriteChanger.ChangeSprite(currentItem);
                 }
             
             // Pointing towards a multimeter
@@ -41,6 +44,11 @@ public class PickupItem : MonoBehaviour
             } else if (raycastHit.transform.CompareTag("Circuit")) {
                 if (currentItem == null) {
                     message.SetText("Something is missing.");
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        // add changer ship
+                        spriteChangerShip.DisplayPuzzle();
+                    }
                 } else {
                     message.SetText("Press `E` to repair the Spaceship.");
                 }
@@ -48,6 +56,8 @@ public class PickupItem : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E)) {
                     circuit.Repair(currentItem);
+                    spriteChanger.Reset();
+                    currentItem = null;
                 }
             } else {
                 message.gameObject.SetActive(false);
@@ -55,5 +65,11 @@ public class PickupItem : MonoBehaviour
         } else {
             message.gameObject.SetActive(false);
         }
+        // close puzzle
+        if (Input.GetKeyDown(KeyCode.Escape) && spriteChangerShip.IsPuzzleActive())
+        {
+            spriteChangerShip.HidePuzzle();
+        }
     }
+   
 }
