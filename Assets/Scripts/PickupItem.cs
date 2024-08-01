@@ -9,7 +9,7 @@ public class PickupItem : MonoBehaviour
     [SerializeField] private float interactDistance = 2f;
     [SerializeField] private LayerMask interactLayer;
     [SerializeField] private TMP_Text message;
-    [SerializeField] private FinishSpaceship spaceship;
+    [SerializeField] private FinishCircuit circuit;
 
     public GameObject currentItem;
     public SpriteChangerInventory spriteChanger;
@@ -41,7 +41,7 @@ public class PickupItem : MonoBehaviour
                 }
             
             // Pointing towards the spaceship
-            } else if (raycastHit.transform.CompareTag("Spaceship")) {
+            } else if (raycastHit.transform.CompareTag("Circuit")) {
                 if (currentItem == null) {
                     message.SetText("Something is missing.");
                     if (Input.GetKeyDown(KeyCode.E))
@@ -55,7 +55,7 @@ public class PickupItem : MonoBehaviour
                 message.gameObject.SetActive(true);
 
                 if (Input.GetKeyDown(KeyCode.E)) {
-                    spaceship.Repair(currentItem);
+                    circuit.Repair(currentItem);
                     spriteChanger.Reset();
                     currentItem = null;
                 }
