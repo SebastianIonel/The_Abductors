@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FinishSpaceship : MonoBehaviour
+public class FinishCircuit : MonoBehaviour
 {
     public int resistanceValue = 100;
 
@@ -13,6 +13,7 @@ public class FinishSpaceship : MonoBehaviour
             if (resistance != null) {
                 if (resistance.resistanceValue == resistanceValue) {
                     Debug.Log("Congrats!!");
+                    Destroy(gameObject);
                 } else {
                     Debug.Log("Shit!");
                 }
