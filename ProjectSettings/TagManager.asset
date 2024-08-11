@@ -8,6 +8,8 @@ TagManager:
   - Multimeter
   - Spaceship
   - Circuit
+  - Enemy
+  - Asteroid
   layers:
   - Default
   - TransparentFX
