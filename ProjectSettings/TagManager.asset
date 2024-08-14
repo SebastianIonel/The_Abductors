@@ -10,6 +10,7 @@ TagManager:
   - Circuit
   - Enemy
   - Asteroid
+  - Canon
   layers:
   - Default
   - TransparentFX
