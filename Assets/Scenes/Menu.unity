@@ -3560,7 +3560,7 @@ GameObject:
   - component: {fileID: 1520161907}
   - component: {fileID: 1520161906}
   m_Layer: 0
-  m_Name: EmptyGameObject
+  m_Name: PlanetClick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

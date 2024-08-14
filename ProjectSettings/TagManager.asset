@@ -10,6 +10,8 @@ TagManager:
   - Circuit
   - Enemy
   - Asteroid
+  - FxTemporaire
+  - MeteorGun
   layers:
   - Default
   - TransparentFX
