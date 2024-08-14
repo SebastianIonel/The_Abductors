@@ -36,77 +36,72 @@ public class PickupItem : MonoBehaviour
 
     void Update()
     {
-        if (!mouseLook.usingGun) {
-            if (Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit raycastHit, interactDistance, interactLayer)) {
+        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit raycastHit, interactDistance, interactLayer)) {
 
-                switch (level) {
-                    case 0: {
-                        // Pointing towards an item
-                        if (raycastHit.transform.CompareTag("Item")) {
-                            message.SetText("Press `E` to pick up item.");
-                            message.gameObject.SetActive(true);
-                            
-
-                            if (Input.GetKeyDown(KeyCode.E)) {
-                                currentItem = raycastHit.transform.gameObject;
-                                spriteChanger.ChangeSprite(currentItem);
-                            }
+            switch (level) {
+                case 0: {
+                    // Pointing towards an item
+                    if (raycastHit.transform.CompareTag("Item")) {
+                        message.SetText("Press `E` to pick up item.");
+                        message.gameObject.SetActive(true);
                         
-                        // Pointing towards a multimeter
-                        } else if (raycastHit.transform.CompareTag("Multimeter")) {
-                            message.SetText("Press `E` to measure resistance value.");
-                            message.gameObject.SetActive(true);
 
-                            if (currentItem != null && Input.GetKeyDown(KeyCode.E)) {
-                                raycastHit.transform.GetComponent<Multimeter>().MeasureResistance(currentItem);
-                            }
-                        
-                        // Pointing towards the spaceship
-                        } else if (raycastHit.transform.CompareTag("Circuit")) {
-                            if (currentItem == null) {
-                                message.SetText("Something is missing.");
-                                if (Input.GetKeyDown(KeyCode.E))
-                                {
-                                    // add changer ship
-                                    spriteChangerShip.DisplayPuzzle();
-                                }
-                            } else {
-                                message.SetText("Press `E` to repair the Spaceship.");
-                            }
-                            message.gameObject.SetActive(true);
+                        if (Input.GetKeyDown(KeyCode.E)) {
+                            currentItem = raycastHit.transform.gameObject;
+                            spriteChanger.ChangeSprite(currentItem);
+                        }
+                    
+                    // Pointing towards a multimeter
+                    } else if (raycastHit.transform.CompareTag("Multimeter")) {
+                        message.SetText("Press `E` to measure resistance value.");
+                        message.gameObject.SetActive(true);
 
-                            if (Input.GetKeyDown(KeyCode.E)) {
-                                circuit.Repair(currentItem);
-                                spriteChanger.Reset();
-                                currentItem = null;
+                        if (currentItem != null && Input.GetKeyDown(KeyCode.E)) {
+                            raycastHit.transform.GetComponent<Multimeter>().MeasureResistance(currentItem);
+                        }
+                    
+                    // Pointing towards the spaceship
+                    } else if (raycastHit.transform.CompareTag("Circuit")) {
+                        if (currentItem == null) {
+                            message.SetText("Something is missing.");
+                            if (Input.GetKeyDown(KeyCode.E))
+                            {
+                                // add changer ship
+                                spriteChangerShip.DisplayPuzzle();
                             }
                         } else {
-                            message.gameObject.SetActive(false);
+                            message.SetText("Press `E` to repair the Spaceship.");
                         }
-                        break; 
-                    }
-                    case 1: {
-                        if (raycastHit.transform.CompareTag("MeteorGun")) {
-                            message.SetText("Press `E` to use the MeteorDestroyer3700.");
-                            message.gameObject.SetActive(true);
+                        message.gameObject.SetActive(true);
 
-                            if (Input.GetKeyDown(KeyCode.E)) {
-                                UseWeapon();
-                            }
-                        } else {
-                            message.gameObject.SetActive(false);
+                        if (Input.GetKeyDown(KeyCode.E)) {
+                            circuit.Repair(currentItem);
+                            spriteChanger.Reset();
+                            currentItem = null;
                         }
-                        break;
+                    } else {
+                        message.gameObject.SetActive(false);
                     }
+                    break; 
                 }
-            } else {
-                message.gameObject.SetActive(false);
+                case 1: {
+                    if (raycastHit.transform.CompareTag("MeteorGun")) {
+                        message.SetText("Press `E` to use the MeteorDestroyer3700.");
+                        message.gameObject.SetActive(true);
+
+                        if (Input.GetKeyDown(KeyCode.E)) {
+                            UseWeapon();
+                        }
+                    } else {
+                        message.gameObject.SetActive(false);
+                    }
+                    break;
+                }
             }
         } else {
-            if (Input.GetKeyDown(KeyCode.E)) {
-                StopUsingWeapon();
-            }
+            message.gameObject.SetActive(false);
         }
+
         
         // close puzzle
         if (level == 0 && Input.GetKeyDown(KeyCode.Escape) && spriteChangerShip.IsPuzzleActive())
@@ -118,7 +113,6 @@ public class PickupItem : MonoBehaviour
     void UseWeapon()
     {
         mouseLook.playerBody = meteorGun;
-        mouseLook.usingGun = true;
 
         playerMovement.canMove = false;
 
@@ -132,7 +126,6 @@ public class PickupItem : MonoBehaviour
     void StopUsingWeapon()
     {
         mouseLook.playerBody = transform;
-        mouseLook.usingGun = false;
 
         playerMovement.canMove = true;
 
