@@ -4,43 +4,49 @@ using UnityEngine;
 
 public class MeteorGun : MonoBehaviour
 {
-    private LineRenderer lineRenderer;
-    [SerializeField] private float laserWidth = 0.05f;
     [SerializeField] private float laserDuration = 3.0f;
+    [SerializeField] private GameObject laserBeam;
+    [SerializeField] private GameObject explosion;
+    [SerializeField] private ObjectClickHandler selectAsteroid;
 
-    void Start()
+    public bool isFiring;
+
+    public void Shoot(bool scan, float distance, GameObject astroid)
     {
-        lineRenderer = GetComponentInChildren<LineRenderer>();
-        
-        lineRenderer.startWidth = laserWidth;
-        lineRenderer.endWidth = laserWidth;
-        lineRenderer.positionCount = 2;
-        lineRenderer.enabled = false;
-    }
-
-    void Shoot(bool destroy, Vector3 startPos, Vector3 endPos)
-    {
-        if (destroy) {
-
-        } else {
-            lineRenderer.startColor = Color.green;
-            lineRenderer.endColor = Color.green;
-            StartCoroutine(FireLaser(startPos, endPos));
+        if (!isFiring) {
+            StartCoroutine(FireLaser(scan, distance, astroid));
         }
     }
 
-    private IEnumerator FireLaser(Vector3 startPos, Vector3 endPos)
+    private IEnumerator FireLaser(bool scan, float distance, GameObject astroid)
     {
-        lineRenderer.enabled = true;
+        isFiring = true;
+        laserBeam.SetActive(true);
 
-        // Set the positions of the line renderer
-        lineRenderer.SetPosition(0, startPos);
-        lineRenderer.SetPosition(1, endPos);
+        var particleSystem = laserBeam.GetComponent<ParticleSystem>().main;
+        particleSystem.startSpeed = distance * 4;
+
+        if (scan) {
+            particleSystem.startColor = Color.green;
+            particleSystem.startSize = 0.5f;
+        } else {
+            particleSystem.startColor = Color.red;
+            particleSystem.startSize = 1.5f;
+        }
 
         // Wait for the laser duration
         yield return new WaitForSeconds(laserDuration);
 
+        if (!scan) {
+            if (selectAsteroid.displayAsteroid.GetType().Equals(astroid.GetType())) {
+                selectAsteroid.HideAsteroidUI();
+            }
+            Instantiate(explosion, astroid.transform.position, Quaternion.identity);
+            Destroy(astroid);
+        }
+
         // Disable the laser
-        lineRenderer.enabled = false;
+        laserBeam.SetActive(false);
+        isFiring = false;
     }
 }
