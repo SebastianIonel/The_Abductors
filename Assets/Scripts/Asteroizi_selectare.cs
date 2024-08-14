@@ -9,12 +9,15 @@ public class ObjectClickHandler : MonoBehaviour
 {
     public Camera mainCamera;
     private GameObject selectedObject;
-    private GameObject displayAsteroid;
+    public GameObject displayAsteroid;
     [SerializeField] private Transform center;
     [SerializeField] private GameObject[] asteroids; // Asteroid prefabs in order
     [SerializeField] private GameObject[] arrows; // Arrows in order
     [SerializeField] private TMP_Text[] arrow_texts; // Arrow texts in order
     [SerializeField] private MeteorGun meteorGun;
+    [SerializeField] private CanonInteract canonInteract;
+
+    public bool usingGun;
 
     void Start()
     {
@@ -25,7 +28,7 @@ public class ObjectClickHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && usingGun)
         {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -36,59 +39,39 @@ public class ObjectClickHandler : MonoBehaviour
                 if (asteroidData != null && hit.collider.CompareTag("Asteroid"))
                 {
                     selectedObject = hit.collider.gameObject;
-                    ShowAsteroidUI(selectedObject, asteroidData);
+
+                    if (canonInteract.scan) {
+                        ShowAsteroidUI(asteroidData);
+                    }
+                    meteorGun.Shoot(canonInteract.scan, hit.distance, selectedObject);
                 }
             }
         }
     }
 
-    void ShowAsteroidUI(GameObject asteroid, AsteroidData asteroidData)
+    void ShowAsteroidUI(AsteroidData asteroidData)
     {
         if (asteroidData.type == 0) {
             Debug.Log("Invalid asteroid");
             return;
         }
-        if (displayAsteroid != null) {
-            Destroy(displayAsteroid);
-            foreach (GameObject arrow in arrows) {
-                arrow.SetActive(false);
-            }
-        }
+        HideAsteroidUI();
         displayAsteroid = Instantiate(asteroids[asteroidData.type - 1], center);
         
         for (int i = 0; i < asteroidData.substances.Length; i++) {
             arrows[i].SetActive(true);
             arrow_texts[i].SetText(asteroidData.substances[i]);
         }
-        
-        // TextMeshProUGUI infoText1 = asteroidUIInstance.transform.Find("InfoText1").GetComponent<TextMeshProUGUI>();
-        // TextMeshProUGUI infoText2 = asteroidUIInstance.transform.Find("InfoText2").GetComponent<TextMeshProUGUI>();
-        // infoText1.text = "Asteroid Name: " + asteroid.name;
-        // infoText2.text = "Asteroid Position: " + asteroid.transform.position.ToString();
-
-
-        // Button destroyButton = asteroidUIInstance.transform.Find("DestroyButton").GetComponent<Button>();
-        // Button cancelButton = asteroidUIInstance.transform.Find("CancelButton").GetComponent<Button>();
-        // destroyButton.onClick.AddListener(DestroySelectedAsteroid);
-        // cancelButton.onClick.AddListener(CancelSelection);
     }
 
-    // void DestroySelectedAsteroid()
-    // {
-    //     if (selectedObject != null)
-    //     {
-    //         Destroy(selectedObject);
-    //         Destroy(asteroidUIInstance); 
-    //     }
-    // }
-
-    // void CancelSelection()
-    // {
-    //     if (asteroidUIInstance != null)
-    //     {
-    //         Destroy(asteroidUIInstance); 
-    //     }
-    //     selectedObject = null;
-    // }
+    public void HideAsteroidUI()
+    {
+        if (displayAsteroid != null) {
+            Destroy(displayAsteroid);
+            foreach (GameObject arrow in arrows) {
+                arrow.SetActive(false);
+            }
+        }
+    }
 }
 
