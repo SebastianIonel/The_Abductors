@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.Burst.CompilerServices;
+using UnityEngine.UI;
 
 public class PickupItem : MonoBehaviour
 {
@@ -16,7 +18,8 @@ public class PickupItem : MonoBehaviour
     public GameObject currentItem;
     public SpriteChangerInventory spriteChanger;
     public SpriteChangerShip spriteChangerShip;
-
+    private GameObject shipComponentObj;
+    private ShipComponent shipComponent;
     /*
      * level 0 = fizica
      * level 1 = chimie
@@ -62,22 +65,31 @@ public class PickupItem : MonoBehaviour
                     
                     // Pointing towards the spaceship
                     } else if (raycastHit.transform.CompareTag("Circuit")) {
+                        shipComponentObj = raycastHit.transform.gameObject;
+                        shipComponent = shipComponentObj.GetComponent<ShipComponent>();
+                            
                         if (currentItem == null) {
                             message.SetText("Something is missing.");
                             if (Input.GetKeyDown(KeyCode.E))
                             {
+                                
+                                spriteChangerShip.SetPuzzle(shipComponent.puzzle);
                                 // add changer ship
                                 spriteChangerShip.DisplayPuzzle();
-                            }
+                                
+                                }
                         } else {
                             message.SetText("Press `E` to repair the Spaceship.");
                         }
                         message.gameObject.SetActive(true);
 
                         if (Input.GetKeyDown(KeyCode.E)) {
-                            circuit.Repair(currentItem);
-                            spriteChanger.Reset();
-                            currentItem = null;
+                            if (shipComponent.Repair(currentItem))
+                            {
+                                Destroy(raycastHit.collider.gameObject);
+                                spriteChanger.Reset();
+                                currentItem = null;
+                            }
                         }
                     } else {
                         message.gameObject.SetActive(false);

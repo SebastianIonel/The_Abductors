@@ -27,9 +27,9 @@ public class SpriteChangerShip : MonoBehaviour
     {
         return circuit.gameObject.activeSelf;
     }
-    // Update is called once per frame
-    void Update()
+    
+    public void SetPuzzle(Image newCirc)
     {
-        
+        circuit = newCirc;
     }
 }
