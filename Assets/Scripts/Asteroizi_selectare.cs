@@ -60,7 +60,7 @@ public class ObjectClickHandler : MonoBehaviour
         
         for (int i = 0; i < asteroidData.substances.Length; i++) {
             arrows[i].SetActive(true);
-            arrow_texts[i].SetText(asteroidData.substances[i]);
+            arrow_texts[i].SetText(asteroidData.substances[i] + " " + asteroidData.percentages[i] + "%");
         }
     }
 

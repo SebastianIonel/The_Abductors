@@ -8,39 +8,24 @@ public class Score : MonoBehaviour
 
     public TextMeshProUGUI text;
     private int score;
+    [SerializeField] private GameObject asteroids;
 
-    // Start is called before the first frame update
     void Start()
     {
         score = 0;
+        AsteroidData[] asteroidDatas = asteroids.GetComponentsInChildren<AsteroidData>();
+        foreach (AsteroidData asteroidData in asteroidDatas) {
+            score += asteroidData.points;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        text.text = "Current\nScore: " + score;
-        //Test();
+        text.text = "Score: " + score;
     }
 
-    void AddPoints(int points)
-    {
-        score += points;
-    }
-
-    void RemovePoints(int points)
+    public void AddPoints(int points)
     {
         score -= points;
-    }
-
-    private void Test()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            AddPoints(10);
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            RemovePoints(10);
-        }
     }
 }

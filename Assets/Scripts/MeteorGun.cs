@@ -8,6 +8,7 @@ public class MeteorGun : MonoBehaviour
     [SerializeField] private GameObject laserBeam;
     [SerializeField] private GameObject explosion;
     [SerializeField] private ObjectClickHandler selectAsteroid;
+    [SerializeField] private Score score;
 
     public bool isFiring;
 
@@ -42,6 +43,9 @@ public class MeteorGun : MonoBehaviour
                 selectAsteroid.HideAsteroidUI();
             }
             Instantiate(explosion, astroid.transform.position, Quaternion.identity);
+
+            AsteroidData asteroidData = astroid.GetComponent<AsteroidData>();
+            score.AddPoints(asteroidData.points);
             Destroy(astroid);
         }
 
