@@ -7,7 +7,8 @@ public class Score : MonoBehaviour
 {
 
     public TextMeshProUGUI text;
-    private int score;
+    public int score;
+    public int maxScore;
     [SerializeField] private GameObject asteroids;
 
     void Start()

@@ -9,6 +9,7 @@ public class CanonInteract : MonoBehaviour
     [SerializeField] private float interactDistance = 2f;
     [SerializeField] private LayerMask interactLayer;
     [SerializeField] private TMP_Text message;
+    [SerializeField] private GameObject instructions;
 
     public MouseLook mainCameraMove;
     public CanonLook canonLook;
@@ -18,12 +19,14 @@ public class CanonInteract : MonoBehaviour
     public ObjectClickHandler selectAsteroid;
 
     public bool scan = true;
+    private bool instructionsClosed = false;
 
     public void Start()
     {
         canonCamera.enabled = false;
         firstPersonCamera.enabled = true;
         canonLook.enabled = false;
+        instructions.SetActive(false);
     }
 
     void Update()
@@ -47,6 +50,10 @@ public class CanonInteract : MonoBehaviour
                         mainCameraMove.enabled = false;
                         selectAsteroid.usingGun = true;
                         message.SetText("Press `E` to switch mode.\nMode: <color=#00FF00>Scan</color>");
+                        if (instructions) {
+                            instructions.SetActive(true);
+                            message.gameObject.SetActive(false);
+                        }
                     }
                 } else {
                     message.gameObject.SetActive(false);
@@ -55,22 +62,28 @@ public class CanonInteract : MonoBehaviour
                 message.gameObject.SetActive(false);
             }
         } else {
-            // close switch back to first person
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                canonCamera.enabled = false;
-                canonLook.enabled = false;
-                firstPersonCamera.enabled = true;
-                move.enabled = true;
-                mainCameraMove.enabled = true;
-                selectAsteroid.usingGun = false;
-                scan = true;
-            } else if (Input.GetKeyDown(KeyCode.E)) {
-                scan = !scan;
-                if (scan) {
-                    message.SetText("Press `E` to switch mode.\nMode: <color=#00FF00>Scan</color>");
-                } else {
-                    message.SetText("Press `E` to switch mode.\nMode: <color=#FF0000>Destroy</color>");
+            if (!instructions) {
+                if (!instructionsClosed) {
+                    instructionsClosed = true;
+                    message.gameObject.SetActive(true);
+                }
+                // close switch back to first person
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    canonCamera.enabled = false;
+                    canonLook.enabled = false;
+                    firstPersonCamera.enabled = true;
+                    move.enabled = true;
+                    mainCameraMove.enabled = true;
+                    selectAsteroid.usingGun = false;
+                    scan = true;
+                } else if (Input.GetKeyDown(KeyCode.E)) {
+                    scan = !scan;
+                    if (scan) {
+                        message.SetText("Press `E` to switch mode.\nMode: <color=#00FF00>Scan</color>");
+                    } else {
+                        message.SetText("Press `E` to switch mode.\nMode: <color=#FF0000>Destroy</color>");
+                    }
                 }
             }
         }

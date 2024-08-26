@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlanetClickRaycaster : MonoBehaviour
 {
     private PlanetClickHandler selectedPlanet;
+
+    void Start() {
+        Cursor.lockState = CursorLockMode.None;
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) // Left mouse button click

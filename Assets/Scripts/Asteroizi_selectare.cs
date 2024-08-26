@@ -28,22 +28,36 @@ public class ObjectClickHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && usingGun)
-        {
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+        if (usingGun) {
+            if (Input.GetMouseButtonDown(0))
             {
-                AsteroidData asteroidData = hit.collider.GetComponent<AsteroidData>();
-                if (asteroidData != null && hit.collider.CompareTag("Asteroid"))
-                {
-                    selectedObject = hit.collider.gameObject;
+                Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
 
-                    if (canonInteract.scan) {
-                        ShowAsteroidUI(asteroidData);
+                if (Physics.Raycast(ray, out hit))
+                {
+                    AsteroidData asteroidData = hit.collider.GetComponent<AsteroidData>();
+                    if (asteroidData != null && hit.collider.CompareTag("Asteroid"))
+                    {
+                        selectedObject = hit.collider.gameObject;
+
+                        if (canonInteract.scan) {
+                            ShowAsteroidUI(asteroidData);
+                        }
+                        meteorGun.Shoot(canonInteract.scan, hit.distance, selectedObject);
                     }
-                    meteorGun.Shoot(canonInteract.scan, hit.distance, selectedObject);
+                }
+            } else if (Input.GetMouseButtonDown(1)) {
+                Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    AsteroidData asteroidData = hit.collider.GetComponent<AsteroidData>();
+                    if (asteroidData != null && hit.collider.CompareTag("Asteroid"))
+                    {
+                        asteroidData.marked = !asteroidData.marked;
+                    }
                 }
             }
         }
