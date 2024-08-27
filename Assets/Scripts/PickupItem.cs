@@ -39,6 +39,15 @@ public class PickupItem : MonoBehaviour
 
     void Update()
     {
+
+        // open map
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            spriteChanger.Map();
+
+        }
+
         if (Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit raycastHit, interactDistance, interactLayer)) {
 
             switch (level) {
