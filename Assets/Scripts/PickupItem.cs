@@ -145,4 +145,10 @@ public class PickupItem : MonoBehaviour
         Camera.main.transform.localPosition = cameraPos;
         Camera.main.transform.localRotation = Quaternion.identity;
     }
+
+    public void DropItem()
+    {
+        spriteChanger.Reset();
+        currentItem = null;
+    }
 }

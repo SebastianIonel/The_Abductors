@@ -8,6 +8,8 @@ public class RespawnOnCollision : MonoBehaviour
     [SerializeField] private Vector3 respawnPosition;
     [SerializeField] private CharacterController characterController;
 
+    public PickupItem item; 
+
     private void OnTriggerEnter(Collider coll)
     {
         if (coll.CompareTag("Player"))
@@ -16,6 +18,7 @@ public class RespawnOnCollision : MonoBehaviour
             characterController.enabled = false;
             coll.gameObject.transform.position = respawnPosition;
             characterController.enabled = true;
+            item.DropItem();
         }
     }
 }
