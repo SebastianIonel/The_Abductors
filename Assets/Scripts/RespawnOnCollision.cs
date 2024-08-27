@@ -14,7 +14,6 @@ public class RespawnOnCollision : MonoBehaviour
     {
         if (coll.CompareTag("Player"))
         {
-
             characterController.enabled = false;
             coll.gameObject.transform.position = respawnPosition;
             characterController.enabled = true;
