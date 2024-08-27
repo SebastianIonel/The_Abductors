@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     public bool canMove = true;
 
+    // Car movement
+    public bool isCar = false;
+
     void Update()
     {
         if (canMove) {
@@ -28,14 +31,24 @@ public class PlayerMovement : MonoBehaviour
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
 
-            Vector3 move = transform.right * x + transform.forward * z;
+            Vector3 move = Vector3.zero;
+            if (!isCar) {
+                move = transform.right * x;
+            }
+            move += transform.forward * z;
 
             controller.Move(move * speed * Time.deltaTime);
 
             // Jump
+<<<<<<< Updated upstream
             // if (Input.GetButtonDown("Jump") && isGrounded) {
             //     velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             // }
+=======
+            if (!isCar && Input.GetButtonDown("Jump") && isGrounded) {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+>>>>>>> Stashed changes
 
             velocity.y += gravity * Time.deltaTime;
 

@@ -12,6 +12,8 @@ TagManager:
   - Asteroid
   - FxTemporaire
   - MeteorGun
+  - Canon
+  - Car
   layers:
   - Default
   - TransparentFX
