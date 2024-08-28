@@ -18,12 +18,10 @@ public class ShipComponent : MonoBehaviour
             {
                 if (resistance.resistanceValue == result)
                 {
-                    Debug.Log("Congrats!!");
                     return true;
                 }
                 else
                 {
-                    Debug.Log("Shit!");
                     return false;
                 }
             }

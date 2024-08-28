@@ -29,6 +29,7 @@ public class PickupItem : MonoBehaviour
     private Vector3 cameraPos;
     private MouseLook mouseLook;
     private PlayerMovement playerMovement;
+    [SerializeField] private ShipComponent[] shipComponents;
     
     // Car interaction variables
     [SerializeField] private Camera firstPersonCamera;
@@ -59,6 +60,12 @@ public class PickupItem : MonoBehaviour
         carMovement.enabled = false;
         firstPersonListener.enabled = true;
         carListener.enabled = false;
+
+        for (int i = 0; i < shipComponents.Length; i++) {
+            if (PlayerPrefs.GetInt(shipComponents[i].name + "Solved") == 1) {
+                Destroy(shipComponents[i].gameObject);
+            }
+        }
     }
 
     void Update()
@@ -67,7 +74,6 @@ public class PickupItem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             spriteChanger.Map();
-
         }
 
         if (!usingCar) {
@@ -104,28 +110,25 @@ public class PickupItem : MonoBehaviour
                                 message.SetText("Something is missing.");
                                 if (Input.GetKeyDown(KeyCode.E))
                                 {
-                                    
                                     spriteChangerShip.SetPuzzle(shipComponent.puzzle);
                                     // add changer ship
                                     spriteChangerShip.DisplayPuzzle();
-                                    
-                                    }
+                                }
                             } else {
                                 message.SetText("Press `E` to repair the Spaceship.");
                             }
                             message.gameObject.SetActive(true);
 
                             if (Input.GetKeyDown(KeyCode.E)) {
-                                if (shipComponent.Repair(currentItem))
-                                {
+                                if (shipComponent.Repair(currentItem)) {
                                     Destroy(raycastHit.collider.gameObject);
+                                    Debug.Log(raycastHit.collider.gameObject.name + "Solved");
+                                    PlayerPrefs.SetInt(raycastHit.collider.gameObject.name + "Solved", 1);
                                     spriteChanger.Reset();
-                                    currentItem = null;
-                                } else
-                                {
+                                } else {
                                     spriteChanger.Reset();
-                                    currentItem = null;
                                 }
+                                currentItem = null;
                             }
                         } else if (raycastHit.transform.CompareTag("Car")) {
                             message.SetText("Press `E` to enter the car.");
