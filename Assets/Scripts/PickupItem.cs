@@ -121,6 +121,10 @@ public class PickupItem : MonoBehaviour
                                     Destroy(raycastHit.collider.gameObject);
                                     spriteChanger.Reset();
                                     currentItem = null;
+                                } else
+                                {
+                                    spriteChanger.Reset();
+                                    currentItem = null;
                                 }
                             }
                         } else if (raycastHit.transform.CompareTag("Car")) {
