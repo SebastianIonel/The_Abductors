@@ -12,6 +12,9 @@ TagManager:
   - Asteroid
   - FxTemporaire
   - MeteorGun
+  - Car
+  - Canon
+  - Organ
   layers:
   - Default
   - TransparentFX
@@ -21,7 +24,7 @@ TagManager:
   - UI
   - Ground
   - Item
-  - 
+  - OrganLayer
   - 
   - 
   - 

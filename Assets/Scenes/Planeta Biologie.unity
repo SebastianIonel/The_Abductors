@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 6245847}
   - component: {fileID: 6245846}
   - component: {fileID: 6245845}
+  - component: {fileID: 6245848}
   m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -229,6 +230,18 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &6245848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6245843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49fd72b6d565e8429aeb1351f3d58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9395771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8935,6 +8948,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3235965575132758090, guid: 1c443c3abb862244aa6185fe28d5f5bb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1452465232}
+    - targetCorrespondingSourceObject: {fileID: 3235965575132758090, guid: 1c443c3abb862244aa6185fe28d5f5bb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1452465233}
   m_SourcePrefab: {fileID: 100100000, guid: 1c443c3abb862244aa6185fe28d5f5bb, type: 3}
 --- !u!1 &1452465223 stripped
 GameObject:
@@ -8971,6 +8987,16 @@ MonoBehaviour:
   spriteChanger: {fileID: 0}
   spriteChangerShip: {fileID: 0}
   level: 1
+  firstPersonCamera: {fileID: 0}
+  carCamera: {fileID: 0}
+  firstPersonListener: {fileID: 0}
+  carListener: {fileID: 0}
+  mainCameraMove: {fileID: 0}
+  carLook: {fileID: 0}
+  move: {fileID: 0}
+  usingCar: 0
+  carMovement: {fileID: 0}
+  playerSpot: {fileID: 0}
 --- !u!114 &1452465226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9032,6 +9058,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   canMove: 1
+  isCar: 0
 --- !u!114 &1452465230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9074,6 +9101,18 @@ MonoBehaviour:
   score: 0
   maxScore: 40
   asteroids: {fileID: 102528744}
+--- !u!114 &1452465233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452465223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49fd72b6d565e8429aeb1351f3d58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1479344881 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 130102, guid: 04d0bf4be9447154188d86f6e3b8dce9, type: 3}
