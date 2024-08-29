@@ -830,10 +830,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c3749d448da7b42810cd6422752c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPosition: {x: 398.685, y: 4.753, z: -24.88}
-  characterController: {fileID: 1243771451}
+  playerRespawnPosition: {x: 393.04, y: 0.26, z: -25.08}
+  carRespawnPosition: {x: 390.0974, y: 0.10332394, z: -28.644238}
+  playerController: {fileID: 1243771451}
+  carController: {fileID: 847301288}
   item: {fileID: 1243771457}
-  car: {fileID: 847301286}
 --- !u!65 &86812436
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12242,6 +12243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed94cd0a65278624480db21df06897d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!143 &847301288 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 1771295332417594746, guid: aeeccd67c0e9fd64db5f3a2ac853e2e0, type: 3}
+  m_PrefabInstance: {fileID: 1146237482}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &851181481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18250,10 +18256,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c3749d448da7b42810cd6422752c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPosition: {x: 398.685, y: 4.753, z: -24.88}
-  characterController: {fileID: 1243771451}
+  playerRespawnPosition: {x: 393.04, y: 0.26, z: -25.08}
+  carRespawnPosition: {x: 390.0974, y: 0.10332394, z: -28.644238}
+  playerController: {fileID: 1243771451}
+  carController: {fileID: 847301288}
   item: {fileID: 1243771457}
-  car: {fileID: 847301286}
 --- !u!65 &1199803937
 BoxCollider:
   m_ObjectHideFlags: 0
