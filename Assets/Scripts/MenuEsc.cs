@@ -5,21 +5,21 @@ using UnityEngine;
 
 public class MenuEsc : MonoBehaviour
 {
-    [SerializeField] private GameObject quizPanel;
+    [SerializeField] private GameObject menuPanel;
 
-    private MenuManager quizManager;
+    private MenuManager menuManager;
 
     void Start()
     {
-        quizManager = quizPanel.GetComponent<MenuManager>();
+        menuManager = menuPanel.GetComponent<MenuManager>();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            quizPanel.SetActive(true);
-            quizManager.StartQuiz();
+            menuPanel.SetActive(true);
+            menuManager.StartMenu();
         }
     }
 }

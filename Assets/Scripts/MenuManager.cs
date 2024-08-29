@@ -14,18 +14,18 @@ public class MenuManager : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    public void StartQuiz()
+    public void StartMenu()
     {
         gameObject.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         mouseLook.enabled = false;
 
 
-        SetQuiz( "Resume", "Main Menu", "Quit");
+        SetMenu( "Resume", "Main Menu", "Quit");
 
     }
 
-    private void SetQuiz(string option1, string option2, string option3)
+    private void SetMenu(string option1, string option2, string option3)
     {
         answerButtons[0].GetComponentInChildren<TMP_Text>().text = option1;
         answerButtons[1].GetComponentInChildren<TMP_Text>().text = option2;
