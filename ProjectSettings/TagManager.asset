@@ -24,8 +24,8 @@ TagManager:
   - Ground
   - Item
   - OrganLayer
-  - 
-  - 
+  - MiniMap
+  - MinimapIgnore
   - 
   - 
   - 
