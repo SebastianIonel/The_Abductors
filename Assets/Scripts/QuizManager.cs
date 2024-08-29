@@ -25,8 +25,14 @@ public class QuizManager : MonoBehaviour
             case "Heart":
                 SetQuiz("What is the primary function of the heart?", "Pump blood", "Oxygenate blood", "Filter blood", "Store blood", "Pump blood");
                 break;
-            case "Lung":
+            case "Brain":
                 SetQuiz("What is the primary function of the lungs?", "Pump blood", "Oxygenate blood", "Filter blood", "Store blood", "Oxygenate blood");
+                break;
+            case "Brain":
+                SetQuiz("How many lobes are in the cerebral cortex?", "Two", "Three", "Four", "Five");
+                break;
+            case "Eye":
+                SetQuiz("What is the main purpose of the pupil?", "Shrinks or grows to allow light into your eye", "Send electrical signals to your brain.", "Block bugs from getting to your brain.", "A black hole to dump garbage in.");
                 break;
             default:
                 Debug.LogWarning("Unknown organ name: " + organName);
