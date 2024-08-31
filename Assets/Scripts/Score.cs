@@ -13,7 +13,11 @@ public class Score : MonoBehaviour
 
     void Start()
     {
-        score = 0;
+        if (PlayerPrefs.HasKey("ScoreChimie")) {
+            score = PlayerPrefs.GetInt("ScoreChimie");
+        } else {
+            score = 0;
+        }
         AsteroidData[] asteroidDatas = asteroids.GetComponentsInChildren<AsteroidData>();
         foreach (AsteroidData asteroidData in asteroidDatas) {
             score += asteroidData.points;

@@ -5,25 +5,37 @@ using UnityEngine;
 
 public class RespawnOnCollision : MonoBehaviour
 {
-    [SerializeField] private Vector3 playerRespawnPosition;
-    [SerializeField] private Vector3 carRespawnPosition;
+    [SerializeField] private Transform car;
+    [SerializeField] private Vector3 respawnPosition;
     [SerializeField] private CharacterController playerController;
     [SerializeField] private CharacterController carController;
 
-    public PickupItem item;
+    public PickupItem item; 
 
     private void OnTriggerEnter(Collider coll)
     {
         if (coll.CompareTag("Player"))
         {
-            playerController.enabled = false;
-            coll.gameObject.transform.position = playerRespawnPosition;
-            playerController.enabled = true;
+            if (car) {
+                playerController.enabled = false;
+                coll.gameObject.transform.position = respawnPosition + new Vector3(5f, 0, 0);
+                playerController.enabled = true;
+
+                carController.enabled = false;
+                car.position = respawnPosition;
+                carController.enabled = true;
+            } else {
+                playerController.enabled = false;
+                coll.gameObject.transform.position = respawnPosition;
+                playerController.enabled = true;
+            }
         } else if (coll.CompareTag("Car")) {
             carController.enabled = false;
-            coll.gameObject.transform.position = carRespawnPosition;
+            coll.gameObject.transform.position = respawnPosition;
             carController.enabled = true;
         }
-        item.DropItem();
+        if (item) {
+            item.DropItem();
+        }
     }
 }

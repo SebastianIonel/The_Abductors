@@ -17,6 +17,9 @@ public class QuizManager : MonoBehaviour
     public Vector3[] organsScales;
     private int type;
     private int idx;
+    private bool quizHeart = true;
+    private bool quizBrain = true;
+    private bool quizEye = true;
 
     private void Start() {
         // Adăugarea funcționalității la butoane
@@ -24,6 +27,25 @@ public class QuizManager : MonoBehaviour
         {
             int index = i; // Pentru a evita problemele cu closure
             answerButtons[i].onClick.AddListener(() => CheckAnswer(answerButtons[index].GetComponentInChildren<TMP_Text>().text));
+        }
+
+        if (PlayerPrefs.GetInt("HeartSolved") == 1) {
+            organs[0].position = organsPositions[0].position;
+            organs[0].localScale = organsScales[0];
+            organs[0].tag = "Untagged";
+            quizHeart = false;
+        }
+        if (PlayerPrefs.GetInt("BrainSolved") == 1) {
+            organs[1].position = organsPositions[1].position;
+            organs[1].localScale = organsScales[1];
+            organs[1].tag = "Untagged";
+            quizBrain = false;
+        }
+        if (PlayerPrefs.GetInt("EyeSolved") == 1) {
+            organs[2].position = organsPositions[2].position;
+            organs[2].localScale = organsScales[2];
+            organs[2].tag = "Untagged";
+            quizEye = false;
         }
 
         gameObject.SetActive(false);
@@ -51,7 +73,9 @@ public class QuizManager : MonoBehaviour
                 Debug.LogWarning("Unknown organ name: " + organName);
                 break;
         }
-        Question(type, idx);
+        if (type == 0 && quizHeart || type == 1 && quizBrain || type == 2 && quizEye) {
+            Question(type, idx);
+        }
     }
 
     private void SetQuiz(string question, string option1, string option2, string option3, string option4, string correctAnswer)
@@ -75,6 +99,17 @@ public class QuizManager : MonoBehaviour
             }
             organs[type].position = organsPositions[type].position;
             organs[type].localScale = organsScales[type];
+            organs[type].tag = "Untagged";
+            if (type == 0) {
+                quizHeart = false;
+                PlayerPrefs.SetInt("HeartSolved", 1);
+            } else if (type == 1) {
+                quizBrain = false;
+                PlayerPrefs.SetInt("BrainSolved", 1);
+            } else {
+                quizEye = false;
+                PlayerPrefs.SetInt("EyeSolved", 1);
+            }
         }
         else
         {
