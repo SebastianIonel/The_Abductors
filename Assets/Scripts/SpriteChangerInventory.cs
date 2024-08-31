@@ -5,22 +5,16 @@ using UnityEngine.UI;
 public class SpriteChangerInventory : MonoBehaviour
 {
     public Image targetImage; // The Image component on the Canvas
-    private Sprite initSprite;
+    [SerializeField] private Sprite initSprite;
     public Image map;
 
     void Start()
     {
-
         map.gameObject.SetActive(false);
         if (targetImage == null)
         {
             Debug.LogError("Target Image is not assigned.");
-        } else
-        {
-            initSprite = targetImage.sprite;
         }
-
-       
     }
 
     public void Reset()

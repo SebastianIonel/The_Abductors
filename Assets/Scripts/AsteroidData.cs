@@ -14,6 +14,16 @@ public class AsteroidData : MonoBehaviour
     public Material asteroidMat;
     public MeshRenderer[] meshRenderers;
 
+    void Start()
+    {
+        if (PlayerPrefs.HasKey(gameObject.name + "Destroyed") && PlayerPrefs.GetInt(gameObject.name + "Destroyed") == 1) {
+            Destroy(gameObject);
+        }
+        if (PlayerPrefs.HasKey(gameObject.name + "Marked") && PlayerPrefs.GetInt(gameObject.name + "Marked") == 1) {
+            marked = true;
+        }
+    }
+
     void Update() {
         if (marked) {
             foreach (MeshRenderer meshRenderer in meshRenderers) {

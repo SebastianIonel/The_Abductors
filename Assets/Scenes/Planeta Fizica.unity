@@ -830,8 +830,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c3749d448da7b42810cd6422752c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPosition: {x: 398.685, y: 4.753, z: -24.88}
-  characterController: {fileID: 1243771451}
+  car: {fileID: 847301289}
+  carRespawnPosition: {x: 390.0974, y: 0.10332394, z: -28.644238}
+  playerController: {fileID: 1243771451}
+  carController: {fileID: 847301288}
   item: {fileID: 1243771457}
 --- !u!65 &86812436
 BoxCollider:
@@ -1973,6 +1975,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall-2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 176092, guid: 882dcfc2534adbb48bf3fe882ebf0809, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 475544, guid: 882dcfc2534adbb48bf3fe882ebf0809, type: 3}
       propertyPath: m_LocalScale.x
       value: 8.181905
@@ -2319,8 +2325,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 163.62097, y: 121.62109}
-  m_SizeDelta: {x: 129.242, y: 129.242}
+  m_AnchoredPosition: {x: 216, y: 178}
+  m_SizeDelta: {x: 129.24194, y: 129.24194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &234681150
 PrefabInstance:
@@ -3919,7 +3925,7 @@ GameObject:
   - component: {fileID: 350759948}
   - component: {fileID: 350759947}
   - component: {fileID: 350759949}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5803,7 +5809,7 @@ GameObject:
   - component: {fileID: 516551272}
   - component: {fileID: 516551271}
   - component: {fileID: 516551270}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6757,7 +6763,7 @@ GameObject:
   - component: {fileID: 599073111}
   - component: {fileID: 599073110}
   - component: {fileID: 599073109}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Multimeter
   m_TagString: Multimeter
   m_Icon: {fileID: 0}
@@ -7026,7 +7032,7 @@ GameObject:
   - component: {fileID: 606354012}
   - component: {fileID: 606354011}
   - component: {fileID: 606354010}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8320,6 +8326,10 @@ PrefabInstance:
     - target: {fileID: 176092, guid: 882dcfc2534adbb48bf3fe882ebf0809, type: 3}
       propertyPath: m_Name
       value: perete 3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 176092, guid: 882dcfc2534adbb48bf3fe882ebf0809, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 475544, guid: 882dcfc2534adbb48bf3fe882ebf0809, type: 3}
       propertyPath: m_LocalScale.x
@@ -10925,6 +10935,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4912076655948300, guid: deb88dfc63631e8409cde9d47f8e1b95, type: 3}
   m_PrefabInstance: {fileID: 846951893}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &847301281 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4697973045127578944, guid: aeeccd67c0e9fd64db5f3a2ac853e2e0, type: 3}
+  m_PrefabInstance: {fileID: 1146237482}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &847301286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847301281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed94cd0a65278624480db21df06897d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!143 &847301288 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 1771295332417594746, guid: aeeccd67c0e9fd64db5f3a2ac853e2e0, type: 3}
+  m_PrefabInstance: {fileID: 1146237482}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &847301289 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3883160682453890124, guid: aeeccd67c0e9fd64db5f3a2ac853e2e0, type: 3}
+  m_PrefabInstance: {fileID: 1146237482}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &851181481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11201,6 +11238,10 @@ PrefabInstance:
     - target: {fileID: 176092, guid: 882dcfc2534adbb48bf3fe882ebf0809, type: 3}
       propertyPath: m_Name
       value: perete 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 176092, guid: 882dcfc2534adbb48bf3fe882ebf0809, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 475544, guid: 882dcfc2534adbb48bf3fe882ebf0809, type: 3}
       propertyPath: m_LocalScale.x
@@ -12610,7 +12651,7 @@ GameObject:
   - component: {fileID: 933686682}
   - component: {fileID: 933686681}
   m_Layer: 7
-  m_Name: R2
+  m_Name: R2_Laborator
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15801,7 +15842,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3883160682453890124, guid: aeeccd67c0e9fd64db5f3a2ac853e2e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 390.0974
+      value: -200.9026
       objectReference: {fileID: 0}
     - target: {fileID: 3883160682453890124, guid: aeeccd67c0e9fd64db5f3a2ac853e2e0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15809,7 +15850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3883160682453890124, guid: aeeccd67c0e9fd64db5f3a2ac853e2e0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -28.644238
+      value: -791.18427
       objectReference: {fileID: 0}
     - target: {fileID: 3883160682453890124, guid: aeeccd67c0e9fd64db5f3a2ac853e2e0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16290,8 +16331,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c3749d448da7b42810cd6422752c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPosition: {x: 398.685, y: 4.753, z: -24.88}
-  characterController: {fileID: 1243771451}
+  car: {fileID: 847301289}
+  carRespawnPosition: {x: 390.0974, y: 0.10332394, z: -28.644238}
+  playerController: {fileID: 1243771451}
+  carController: {fileID: 847301288}
   item: {fileID: 1243771457}
 --- !u!65 &1199803937
 BoxCollider:
@@ -16650,6 +16693,8 @@ MonoBehaviour:
   circuit0: {fileID: 1037362723}
   circuit1: {fileID: 919227252}
   circuit2: {fileID: 316367266}
+  player: {fileID: 1243771454}
+  car: {fileID: 847301289}
   endText: {fileID: 533774942}
 --- !u!4 &1250211846 stripped
 Transform:
@@ -17119,7 +17164,7 @@ GameObject:
   - component: {fileID: 1284620875}
   - component: {fileID: 1284620874}
   m_Layer: 7
-  m_Name: R3
+  m_Name: R3_Laborator
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21720,6 +21765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetImage: {fileID: 224791789}
+  initSprite: {fileID: 0}
   map: {fileID: 2023188691}
 --- !u!1001 &1651620409
 PrefabInstance:
@@ -23677,7 +23723,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3235965575132470314, guid: 1c443c3abb862244aa6185fe28d5f5bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 393.04
+      value: -180.7
       objectReference: {fileID: 0}
     - target: {fileID: 3235965575132470314, guid: 1c443c3abb862244aa6185fe28d5f5bb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23685,7 +23731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3235965575132470314, guid: 1c443c3abb862244aa6185fe28d5f5bb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.08
+      value: -821.5
       objectReference: {fileID: 0}
     - target: {fileID: 3235965575132470314, guid: 1c443c3abb862244aa6185fe28d5f5bb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -25389,6 +25435,104 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.6811218, y: 9.06419, z: 3.739685}
   m_Center: {x: 0.051483154, y: 4.032095, z: -0.012481689}
+--- !u!1 &1895596357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1895596358}
+  - component: {fileID: 1895596361}
+  - component: {fileID: 1895596360}
+  - component: {fileID: 1895596359}
+  m_Layer: 5
+  m_Name: MenuPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1895596358
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895596357}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 363434750}
+  - {fileID: 258485755}
+  - {fileID: 906695196}
+  m_Father: {fileID: 802545677}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1895596359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895596357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9deabb6cc9e3f9489253810085a5d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  answerButtons:
+  - {fileID: 258485756}
+  - {fileID: 906695197}
+  - {fileID: 363434751}
+  mouseLook: {fileID: 1555964642}
+  player: {fileID: 1243771454}
+  car: {fileID: 847301289}
+--- !u!114 &1895596360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895596357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1895596361
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895596357}
+  m_CullTransparentMesh: 1
 --- !u!4 &1896226855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4912076655948300, guid: deb88dfc63631e8409cde9d47f8e1b95, type: 3}
@@ -26382,7 +26526,7 @@ GameObject:
   - component: {fileID: 1983529034}
   - component: {fileID: 1983529037}
   m_Layer: 7
-  m_Name: R1
+  m_Name: R1_Laborator
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

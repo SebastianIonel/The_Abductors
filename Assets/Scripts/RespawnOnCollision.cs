@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class RespawnOnCollision : MonoBehaviour
 {
+    [SerializeField] private Transform car;
     [SerializeField] private Vector3 respawnPosition;
-    [SerializeField] private CharacterController characterController;
+    [SerializeField] private CharacterController playerController;
+    [SerializeField] private CharacterController carController;
 
     public PickupItem item; 
 
@@ -14,9 +16,25 @@ public class RespawnOnCollision : MonoBehaviour
     {
         if (coll.CompareTag("Player"))
         {
-            characterController.enabled = false;
+            if (car) {
+                playerController.enabled = false;
+                coll.gameObject.transform.position = respawnPosition + new Vector3(5f, 0, 0);
+                playerController.enabled = true;
+
+                carController.enabled = false;
+                car.position = respawnPosition;
+                carController.enabled = true;
+            } else {
+                playerController.enabled = false;
+                coll.gameObject.transform.position = respawnPosition;
+                playerController.enabled = true;
+            }
+        } else if (coll.CompareTag("Car")) {
+            carController.enabled = false;
             coll.gameObject.transform.position = respawnPosition;
-            characterController.enabled = true;
+            carController.enabled = true;
+        }
+        if (item) {
             item.DropItem();
         }
     }
