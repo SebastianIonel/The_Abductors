@@ -3375,6 +3375,9 @@ MonoBehaviour:
   - {fileID: 802566781}
   - {fileID: 671356807}
   mouseLook: {fileID: 6245845}
+  player: {fileID: 1452465224}
+  car: {fileID: 0}
+  level: 1
 --- !u!114 &627582886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10021,6 +10024,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   canMove: 1
+  level: 1
   isCar: 0
 --- !u!114 &1452465230
 MonoBehaviour:

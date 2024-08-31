@@ -66,6 +66,13 @@ public class PickupItem : MonoBehaviour
                 Destroy(shipComponents[i].gameObject);
             }
         }
+
+        if (PlayerPrefs.HasKey("HeldItem")) {
+            currentItem = GameObject.Find(PlayerPrefs.GetString("HeldItem"));
+            if (currentItem) {
+                spriteChanger.ChangeSprite(currentItem);
+            }
+        }
     }
 
     void Update()
@@ -86,10 +93,10 @@ public class PickupItem : MonoBehaviour
                             message.SetText("Press `E` to pick up item.");
                             message.gameObject.SetActive(true);
                             
-
                             if (Input.GetKeyDown(KeyCode.E)) {
                                 currentItem = raycastHit.transform.gameObject;
                                 spriteChanger.ChangeSprite(currentItem);
+                                PlayerPrefs.SetString("HeldItem", currentItem.name);
                             }
                         
                         // Pointing towards a multimeter
@@ -122,13 +129,9 @@ public class PickupItem : MonoBehaviour
                             if (Input.GetKeyDown(KeyCode.E)) {
                                 if (shipComponent.Repair(currentItem)) {
                                     Destroy(raycastHit.collider.gameObject);
-                                    Debug.Log(raycastHit.collider.gameObject.name + "Solved");
                                     PlayerPrefs.SetInt(raycastHit.collider.gameObject.name + "Solved", 1);
-                                    spriteChanger.Reset();
-                                } else {
-                                    spriteChanger.Reset();
                                 }
-                                currentItem = null;
+                                DropItem();
                             }
                         } else if (raycastHit.transform.CompareTag("Car")) {
                             message.SetText("Press `E` to enter the car.");
@@ -211,5 +214,6 @@ public class PickupItem : MonoBehaviour
     {
         spriteChanger.Reset();
         currentItem = null;
+        PlayerPrefs.SetString("HeldItem", "NullItem404");
     }
 }

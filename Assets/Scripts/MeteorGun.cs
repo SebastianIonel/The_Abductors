@@ -47,6 +47,8 @@ public class MeteorGun : MonoBehaviour
             AsteroidData asteroidData = astroid.GetComponent<AsteroidData>();
             score.AddPoints(asteroidData.points);
             Destroy(astroid);
+            PlayerPrefs.SetInt(astroid.name + "Destroyed", 1);
+            PlayerPrefs.SetInt("ScoreChimie", score.score);
         }
 
         // Disable the laser
