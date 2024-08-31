@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using System.Collections;
 
+
 public class QuizManager : MonoBehaviour
 {
     public TMP_Text questionText; 
@@ -17,9 +18,9 @@ public class QuizManager : MonoBehaviour
     public Vector3[] organsScales;
     private int type;
     private int idx;
-    private bool quizHeart = true;
-    private bool quizBrain = true;
-    private bool quizEye = true;
+    public bool quizHeart = true;
+    public bool quizBrain = true;
+    public bool quizEye = true;
 
     private void Start() {
         // Adăugarea funcționalității la butoane
@@ -49,7 +50,8 @@ public class QuizManager : MonoBehaviour
         }
 
         gameObject.SetActive(false);
-    } 
+    }
+
     public void StartQuiz(string organName)
     {
         gameObject.SetActive(true);
