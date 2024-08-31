@@ -655,6 +655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RL_station_L2_group_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2342264928838932534, guid: c9250c3e4617e3840a9d0bf4a1282aa8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3155533665484440204, guid: c9250c3e4617e3840a9d0bf4a1282aa8, type: 3}
       propertyPath: m_LocalScale.x
       value: 30
@@ -706,6 +710,14 @@ PrefabInstance:
     - target: {fileID: 3155533665484440204, guid: c9250c3e4617e3840a9d0bf4a1282aa8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655054917195095153, guid: c9250c3e4617e3840a9d0bf4a1282aa8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7267191849075613216, guid: c9250c3e4617e3840a9d0bf4a1282aa8, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -824,6 +836,77 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
   m_PrefabInstance: {fileID: 312144580}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &153511294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 153511297}
+  - component: {fileID: 153511296}
+  - component: {fileID: 153511295}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &153511295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153511294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c3749d448da7b42810cd6422752c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: 0}
+  respawnPosition: {x: 504.03394, y: 1.611023, z: 161.59468}
+  playerController: {fileID: 1626143285}
+  carController: {fileID: 0}
+  item: {fileID: 0}
+--- !u!65 &153511296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153511294}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 40000, y: 10, z: 50000}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &153511297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153511294}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 504.03394, y: -10, z: 161.59468}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &154179165
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,7 +916,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154179166}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BrainPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1639,7 +1722,7 @@ GameObject:
   - component: {fileID: 239408400}
   - component: {fileID: 239408399}
   - component: {fileID: 239408398}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tavan_curb_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2490,6 +2573,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2342264928838932534, guid: c9250c3e4617e3840a9d0bf4a1282aa8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3155533665484440204, guid: c9250c3e4617e3840a9d0bf4a1282aa8, type: 3}
       propertyPath: m_LocalScale.x
       value: 45
@@ -2542,6 +2629,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5655054917195095153, guid: c9250c3e4617e3840a9d0bf4a1282aa8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7267191849075613216, guid: c9250c3e4617e3840a9d0bf4a1282aa8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2561,6 +2656,10 @@ PrefabInstance:
     - target: {fileID: 140612, guid: 9d79238e340446545b920b58f2cd9574, type: 3}
       propertyPath: m_Name
       value: container_big
+      objectReference: {fileID: 0}
+    - target: {fileID: 140612, guid: 9d79238e340446545b920b58f2cd9574, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 499840, guid: 9d79238e340446545b920b58f2cd9574, type: 3}
       propertyPath: m_LocalScale.x
@@ -3064,7 +3163,7 @@ GameObject:
   - component: {fileID: 470859258}
   - component: {fileID: 470859257}
   - component: {fileID: 470859256}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: perete_spate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3863,6 +3962,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: container_big (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 140612, guid: 9d79238e340446545b920b58f2cd9574, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 499840, guid: 9d79238e340446545b920b58f2cd9574, type: 3}
       propertyPath: m_LocalScale.x
       value: 20.85643
@@ -3965,9 +4068,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1243241169}
     m_Modifications:
+    - target: {fileID: 106440, guid: 888614259d2d71142a4ba0b538e54caf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 107186, guid: 888614259d2d71142a4ba0b538e54caf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 128784, guid: 888614259d2d71142a4ba0b538e54caf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 129010, guid: 888614259d2d71142a4ba0b538e54caf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 133022, guid: 888614259d2d71142a4ba0b538e54caf, type: 3}
       propertyPath: m_Name
       value: Capacitor
+      objectReference: {fileID: 0}
+    - target: {fileID: 133022, guid: 888614259d2d71142a4ba0b538e54caf, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 449768, guid: 888614259d2d71142a4ba0b538e54caf, type: 3}
       propertyPath: m_LocalScale.x
@@ -4130,7 +4253,7 @@ GameObject:
   - component: {fileID: 576767818}
   - component: {fileID: 576767817}
   - component: {fileID: 576767816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tavan_curb_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4498,6 +4621,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2342264928838932534, guid: c9250c3e4617e3840a9d0bf4a1282aa8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3155533665484440204, guid: c9250c3e4617e3840a9d0bf4a1282aa8, type: 3}
       propertyPath: m_LocalScale.x
       value: 45
@@ -4549,6 +4676,14 @@ PrefabInstance:
     - target: {fileID: 3155533665484440204, guid: c9250c3e4617e3840a9d0bf4a1282aa8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655054917195095153, guid: c9250c3e4617e3840a9d0bf4a1282aa8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7267191849075613216, guid: c9250c3e4617e3840a9d0bf4a1282aa8, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5032,7 +5167,7 @@ GameObject:
   - component: {fileID: 746964595}
   - component: {fileID: 746964594}
   - component: {fileID: 746964593}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tavan_curb_1_spate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5769,6 +5904,10 @@ PrefabInstance:
     - target: {fileID: 186660, guid: 914595d46f531e44f8b35cd1232a0750, type: 3}
       propertyPath: m_Name
       value: vending_machine
+      objectReference: {fileID: 0}
+    - target: {fileID: 186660, guid: 914595d46f531e44f8b35cd1232a0750, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 481974, guid: 914595d46f531e44f8b35cd1232a0750, type: 3}
       propertyPath: m_LocalScale.x
@@ -6621,6 +6760,10 @@ PrefabInstance:
     - target: {fileID: 139876, guid: 98f508b556c380a4e89204f95af2d3da, type: 3}
       propertyPath: m_Name
       value: Battery_medium
+      objectReference: {fileID: 0}
+    - target: {fileID: 139876, guid: 98f508b556c380a4e89204f95af2d3da, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 423864, guid: 98f508b556c380a4e89204f95af2d3da, type: 3}
       propertyPath: m_LocalScale.x
@@ -7807,7 +7950,7 @@ GameObject:
   - component: {fileID: 1130625325}
   - component: {fileID: 1130625324}
   - component: {fileID: 1130625323}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tavan_fata
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8550,6 +8693,9 @@ MonoBehaviour:
   - {fileID: 69968741}
   - {fileID: 1468141852}
   mouseLook: {fileID: 635834257}
+  player: {fileID: 1626143282}
+  car: {fileID: 0}
+  level: 2
 --- !u!1 &1243241168
 GameObject:
   m_ObjectHideFlags: 0
@@ -8947,43 +9093,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1759
+      value: 1758.9996
       objectReference: {fileID: 0}
     - target: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.00000059604645
       objectReference: {fileID: 0}
     - target: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1650
+      value: 1650.0001
       objectReference: {fileID: 0}
     - target: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7081551
+      value: 0.70756024
       objectReference: {fileID: 0}
     - target: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.0007014145
       objectReference: {fileID: 0}
     - target: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.70605695
+      value: 0.7066498
       objectReference: {fileID: 0}
     - target: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.0020792955
       objectReference: {fileID: 0}
     - target: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 0.225
       objectReference: {fileID: 0}
     - target: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 89.83
+      value: 89.926
       objectReference: {fileID: 0}
     - target: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -0.112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9321,7 +9467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1435238818}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HeartPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9918,6 +10064,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pipes_Multi (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6515923876318434010, guid: 83e863e8fac2c914d9239feeac6b87eb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6515923876318434013, guid: 83e863e8fac2c914d9239feeac6b87eb, type: 3}
       propertyPath: m_LocalScale.x
       value: 69.999985
@@ -10325,7 +10475,7 @@ GameObject:
   - component: {fileID: 1551180524}
   - component: {fileID: 1551180523}
   - component: {fileID: 1551180522}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Deco_front_cube_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10957,15 +11107,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3235965575132470314, guid: 1c443c3abb862244aa6185fe28d5f5bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 510.115
+      value: 504.03394
       objectReference: {fileID: 0}
     - target: {fileID: 3235965575132470314, guid: 1c443c3abb862244aa6185fe28d5f5bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8
+      value: 1.611023
       objectReference: {fileID: 0}
     - target: {fileID: 3235965575132470314, guid: 1c443c3abb862244aa6185fe28d5f5bb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2330.8
+      value: 161.59468
       objectReference: {fileID: 0}
     - target: {fileID: 3235965575132470314, guid: 1c443c3abb862244aa6185fe28d5f5bb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11569,8 +11719,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1626143285}
   speed: 100
-  gravity: -19.62
-  jumpHeight: 2
+  gravity: -400
+  jumpHeight: 50
   velocity: {x: 0, y: 0, z: 0}
   groundCheck: {fileID: 623445400}
   groundDistance: 0.4
@@ -11578,6 +11728,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   canMove: 1
+  level: 2
   isCar: 0
 --- !u!114 &1626143287
 MonoBehaviour:
@@ -12869,6 +13020,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battery_big
       objectReference: {fileID: 0}
+    - target: {fileID: 195924, guid: 77c6276b63956c9439d917f842b9eeb0, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 405580, guid: 77c6276b63956c9439d917f842b9eeb0, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -12953,6 +13108,10 @@ PrefabInstance:
     - target: {fileID: 171142, guid: 3705bd4c1b398ea4ba0413ef903772cc, type: 3}
       propertyPath: m_Name
       value: shield_generator
+      objectReference: {fileID: 0}
+    - target: {fileID: 171142, guid: 3705bd4c1b398ea4ba0413ef903772cc, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 408396, guid: 3705bd4c1b398ea4ba0413ef903772cc, type: 3}
       propertyPath: m_LocalScale.x
@@ -13654,7 +13813,7 @@ GameObject:
   - component: {fileID: 1952786405}
   - component: {fileID: 1952786404}
   - component: {fileID: 1952786403}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tavan_curb_2 _spate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13889,7 +14048,7 @@ GameObject:
   - component: {fileID: 1971025297}
   - component: {fileID: 1971025296}
   - component: {fileID: 1971025295}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Deco_front_cube_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14117,7 +14276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2029841283}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EyePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14264,6 +14423,10 @@ PrefabInstance:
     - target: {fileID: 6515923876318434010, guid: 83e863e8fac2c914d9239feeac6b87eb, type: 3}
       propertyPath: m_Name
       value: Pipes_Multi (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515923876318434010, guid: 83e863e8fac2c914d9239feeac6b87eb, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6515923876318434013, guid: 83e863e8fac2c914d9239feeac6b87eb, type: 3}
       propertyPath: m_LocalScale.x
@@ -15004,3 +15167,4 @@ SceneRoots:
   - {fileID: 1906093049}
   - {fileID: 1060493583}
   - {fileID: 1626143280}
+  - {fileID: 153511297}

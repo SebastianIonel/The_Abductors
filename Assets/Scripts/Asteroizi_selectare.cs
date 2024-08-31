@@ -57,6 +57,7 @@ public class ObjectClickHandler : MonoBehaviour
                     if (asteroidData != null && hit.collider.CompareTag("Asteroid"))
                     {
                         asteroidData.marked = !asteroidData.marked;
+                        PlayerPrefs.SetInt(hit.collider.gameObject.name + "Marked", asteroidData.marked ? 1 : 0);
                     }
                 }
             }
